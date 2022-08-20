@@ -17,25 +17,26 @@ const cred=JSON.parse(localStorage.getItem("cred"))
     return (res !== null)
   };
 
-  const fetchData = async () => {
-    
+  const fetchData = () => {
+    console.log("yesa")
     if(! isValidURL(inputValue)){
 return alert("Type proper Url")
     } 
       setLoading(true);
-      const res = await axios.post(`https://suppynote.herokuapp.com/`,{
+     axios.post(`https://supplynote.herokuapp.com/`,{
         "long":inputValue,
       },{
         headers:{
           authorization: 'Bearer ' +  cred.token,
       }
       }).then((res)=>{
+        console.log(res.data)
         setShortenLink(res.data);
         getGenerated()
       }).catch((err)=>{
         setShortenLink("")
         setError(true);
-        alert(err.response.data.err)
+       
         let timed= setTimeout(() => {
             setError(false);
           }, 2000);
