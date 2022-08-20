@@ -18,7 +18,7 @@ const cred=JSON.parse(localStorage.getItem("cred"))
   };
 
   const fetchData = () => {
-    console.log("yesa")
+    
     if(! isValidURL(inputValue)){
 return alert("Type proper Url")
     } 
@@ -30,8 +30,9 @@ return alert("Type proper Url")
           authorization: 'Bearer ' +  cred.token,
       }
       }).then((res)=>{
-        console.log(res.data)
+       console.log(res.data)
         setShortenLink(res.data);
+
         getGenerated()
       }).catch((err)=>{
         setShortenLink("")
