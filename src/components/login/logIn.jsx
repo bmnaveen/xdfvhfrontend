@@ -28,7 +28,10 @@ setUser({
 
   }
   const checkData=()=>{
-    
+    if(user.passcode.length<=7){
+      alert("Weak password")
+      return false
+    }
     return true
   }
   const further=(x)=>{
