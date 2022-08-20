@@ -81,7 +81,7 @@ return alert("Type proper Url")
   
   const getGenerated= ()=>{
    
-    axios.post("https://suppynote.herokuapp.com/mialy",{},{
+    axios.post("https://supplynote.herokuapp.com/mialy",{},{
       headers:{
         authorization: 'Bearer ' +  cred.token,
     }
@@ -97,7 +97,7 @@ return alert("Type proper Url")
 
 const deleteData=(x)=>{
   
-  axios.post(`https://suppynote.herokuapp.com/mialy/${x._id}`,{},{
+  axios.post(`https://supplynote.herokuapp.com/mialy/${x._id}`,{},{
     headers:{
       authorization: 'Bearer ' +  cred.token,
   }

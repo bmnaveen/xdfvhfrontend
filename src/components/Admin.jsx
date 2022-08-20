@@ -16,7 +16,7 @@ const [users,setUsers]=useState([])
 
 useEffect(()=>{
     console.log(cred.token)
-axios.post("https://suppynote.herokuapp.com/user",{},{
+axios.post("https://supplynote.herokuapp.com/user",{},{
     headers:{
         authorization: 'Bearer ' +  cred.token,
     }

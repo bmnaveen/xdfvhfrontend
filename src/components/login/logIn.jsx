@@ -40,7 +40,7 @@ setUser({
    if(!checkData()){
     return;
    }
-    axios.post("https://suppynote.herokuapp.com/user/signin",{
+    axios.post("https://supplynote.herokuapp.com/user/signin",{
       "email":user.email,
       "password":user.passcode
     }).then((res)=>{
@@ -55,7 +55,7 @@ setUser({
     if(!checkData()){
       return;
      }
-    axios.post("https://suppynote.herokuapp.com/user/signup",{
+    axios.post("https://supplynote.herokuapp.com/user/signup",{
       "email":user.email,
       "password":user.passcode
     }).then((res)=>{
