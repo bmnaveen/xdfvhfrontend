@@ -29,9 +29,7 @@ return alert("Type proper Url")
         headers:{
           authorization: 'Bearer ' +  cred.token,
       }
-      }).catch((err)=>{
-        alert(err.response.data.err)
-      });
+      })
       getGenerated()
       setShortenLink(res.data);
      
@@ -39,7 +37,7 @@ return alert("Type proper Url")
       
       setShortenLink("")
       setError(true);
-      
+      alert(err.response.data.err)
       let timed= setTimeout(() => {
           setError(false);
         }, 2000);
