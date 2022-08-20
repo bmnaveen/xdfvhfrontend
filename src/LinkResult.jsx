@@ -18,7 +18,7 @@ const cred=JSON.parse(localStorage.getItem("cred"))
   };
 
   const fetchData = async () => {
-    try {
+    
     if(! isValidURL(inputValue)){
 return alert("Type proper Url")
     } 
@@ -29,24 +29,24 @@ return alert("Type proper Url")
         headers:{
           authorization: 'Bearer ' +  cred.token,
       }
+      }).then((res)=>{
+        setShortenLink(res.data);
+        getGenerated()
+      }).catch((err)=>{
+        setShortenLink("")
+        setError(true);
+        alert(err.response.data.err)
+        let timed= setTimeout(() => {
+            setError(false);
+          }, 2000);
+          return ()=>clearTimeout(timed)
+      }).finally(()=>{
+        setLoading(false);
       })
-      getGenerated()
-      setShortenLink(res.data);
+      
+      
      
-    } catch(err) {
-      
-      setShortenLink("")
-      setError(true);
-      alert(err.response.data.err)
-      let timed= setTimeout(() => {
-          setError(false);
-        }, 2000);
-        return ()=>clearTimeout(timed)
-        
-      
-    } finally {
-      setLoading(false);
-    }
+    
   }
 
 
